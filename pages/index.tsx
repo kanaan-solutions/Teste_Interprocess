@@ -47,8 +47,28 @@ export default function Register() {
     getPatientData();
   }, [])
 
+  const handleFilter = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement>): void => {
+    const searchWord: string = target.value.toLowerCase()
+    setWordEntered(searchWord)
 
+    const newFilter: IPatient[] = patient.filter(({ name }): boolean =>
+      name.toLowerCase().includes(searchWord)
+    )
 
+    if (!searchWord) {
+      setFilteredData(patient)
+    } else {
+      setFilteredData(newFilter)
+    }
+  }
+
+  const clearInput = (): void => {
+    setFilteredData([])
+    setWordEntered("")
+    inputRef.current?.focus()
+  }
 
   return (
     <>
@@ -68,13 +88,13 @@ export default function Register() {
         </SearchBarContainer>
 
         {patient.length === 0 &&
-          < NoUsers >
+          <NoUsers >
             <FaUserSlash size={63} color={"black"} />
             <PageTitle title={"Nenhum paciente cadastrado"} />
           </NoUsers>
         }
 
-        {filteredData.length !== 0 && (
+        {wordEntered.length !== 0 ? (
           <Patient>
             {filteredData.map(({ name }, key) => (
               <h1 key={key}>
@@ -82,14 +102,15 @@ export default function Register() {
               </h1>
             ))}
           </Patient>
-        )}
-
-        {/* {
-          patient.map((item: IPatient) => (
-            <h1>{item.name}</h1>
-          ))
-        } */}
-
+        ) :
+          <Patient>
+            {patient.map(({ name }, key) => (
+              <h1 key={key}>
+                {name}
+              </h1>
+            ))}
+          </Patient>
+        }
 
         <Button
           type="submit"

@@ -1,10 +1,9 @@
 import { useState, FormEvent } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Button } from "../components/Button";
 import PageHeader from "../components/PageHeader";
 import { PageTitle } from "../components/PageTitle";
 import { useRouter } from 'next/router'
-
+import * as masks from '../plugins/masks';
 
 import { Container, Form, Input } from "../styles/registerStyles";
 
