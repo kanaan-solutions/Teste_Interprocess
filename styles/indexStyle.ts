@@ -32,3 +32,12 @@ export const Patient = styled.div `
 	flex-direction: column;
 	margin-top: 3rem;
 `;
+
+export const NoUsers = styled.div `
+	display:  flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+`;
