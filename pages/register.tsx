@@ -39,14 +39,12 @@ export default function Register() {
 
     handleCpfExist()
 
-    console.log("to no useEffect", cpfExist?.length)
   }, [cpf])
 
    function handleSubmit(e: FormEvent) {
     const patients = localStorage.getItem("patientData");
 
-    let patientArray = [];
-    console.log("criado o value")
+     let patientArray = [];
 
     if (patients === "null") {
       console.log(null)

@@ -92,7 +92,7 @@ export default function Register() {
 
         {wordEntered.length !== 0 ? (
           <Table>
-            {filteredData.map((item: IPatient) => (
+            {filteredData.map((item: IPatient, index) => (
               <PatientCard
                 id={item.id}
                 name={item.name}
@@ -104,13 +104,14 @@ export default function Register() {
                 navigation={() => router.push({
                   pathname: '/edit/[id]',
                   query: {
-                    id: item.id,
-                    name: item.name,
-                    birthDate: item.birthDate,
-                    cpf: item.cpf,
-                    gender: item.gender,
-                    address: item.address,
-                    status: item.status,
+                    patientId: item.id,
+                    patientName: item.name,
+                    patientBirthDate: item.birthDate,
+                    patientCpf: item.cpf,
+                    patientGender: item.gender,
+                    patientAddress: item.address,
+                    patientStatus: item.status,
+                    index: index,
                   },
                 })}
               />
@@ -118,7 +119,7 @@ export default function Register() {
           </Table>
         ) :
           <Table>
-            {patient?.map((item: IPatient) => (
+            {patient?.map((item: IPatient, index) => (
               <PatientCard
                 id={item.id}
                 name={item.name}
@@ -137,6 +138,7 @@ export default function Register() {
                     patientGender: item.gender,
                     patientAddress: item.address,
                     patientStatus: item.status,
+                    index: index,
                   },
                 })}
               />

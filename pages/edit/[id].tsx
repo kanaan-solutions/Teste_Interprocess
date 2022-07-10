@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router'
 import * as masks from '../../types/plugins/masks';
 
@@ -15,13 +15,13 @@ import { Input } from '../../components/Input';
 export default function Register() {
   const router = useRouter()
   const {
-    patientId,
     patientName,
     patientBirthDate,
     patientCpf,
     patientGender,
     patientAddress,
-    patientStatus
+    patientStatus,
+    index
   } = router.query;
 
   const [name, setName] = useState<string>("");
@@ -31,20 +31,8 @@ export default function Register() {
   const [address, setAddress] = useState<string>("");
   const [status, setStatus] = useState<string>("");
 
-
-  useEffect(() => {
-    console.log(patientId)
-    console.log(patientName)
-    console.log(patientBirthDate)
-    console.log(patientCpf)
-    console.log(patientGender)
-    console.log(patientAddress)
-    console.log(patientStatus)
-  }, [])
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    const patients = await localStorage.getItem("patientData");
+  function handleSubmit() {
+    const patients = localStorage.getItem("patientData");
 
     let patientArray = [];
 
@@ -52,11 +40,16 @@ export default function Register() {
       patientArray = JSON.parse(patients);
     }
 
-    patientArray.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
+    patientArray[index].name = name || patientName
+    patientArray[index].birthDate = birthDate || patientBirthDate
+    patientArray[index].cpf = cpf || patientCpf
+    patientArray[index].gender = gender || patientGender
+    patientArray[index].address = address || patientAddress
+    patientArray[index].status = status || patientStatus
 
-    await localStorage.setItem('patientData', JSON.stringify(patientArray));
-    alert("Deu certo")
-    console.log(patientArray)
+
+    localStorage.setItem('patientData', JSON.stringify(patientArray));
+    alert("Paciente Atualizado com sucesso")
 
     router.push("/")
   }
