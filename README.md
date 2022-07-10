@@ -32,3 +32,31 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+### Informações Gerais
+```
+# Pasta public
+Contém todas as imagens usadas na aplicação
+
+
+# Pasta components
+Contém todos os Componentes usados pela aplicação
+
+
+# Pasta pages
+Contém todos as Páginas usados pela aplicação
+
+
+# Pasta styles
+Contém os estilos das páginas principais
+
+
+
+# Pasta stores
+Composta pela pasta ducks, nela possuem todos os reducers usados pela aplicação
+
+
+# Pasta utils
+Contém as informações úteis da aplicação como todas as Interface usadas, plugins e types.
+```
+
