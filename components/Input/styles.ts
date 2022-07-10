@@ -7,6 +7,7 @@ export const InputText = styled.input`
 	margin: 1rem;
 	padding: 8px;
 	border-radius: 8px;
+	color: #fff;
 
 	:hover {
 		border-color: #191970;

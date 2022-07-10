@@ -28,13 +28,17 @@ export default function Register() {
       patientArray = JSON.parse(patients);
     }
 
-    patientArray.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
+    if (!name || !birthDate || !cpf || !gender || !status) {
+      return alert("Alguns campos não foram preenchidos")
+    } else {
+      patientArray.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
 
-    await localStorage.setItem('patientData', JSON.stringify(patientArray));
-    alert("Deu certo")
-    console.log(patientArray)
+      await localStorage.setItem('patientData', JSON.stringify(patientArray));
+      alert("Paciente cadastrado com sucesso")
 
-    router.push("/")
+      router.push("/")
+    }
+
   }
 
   return (
