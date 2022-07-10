@@ -7,14 +7,13 @@ export const InputText = styled.input`
 	margin: 1rem;
 	padding: 8px;
 	border-radius: 8px;
-	color: #fff;
 
 	:hover {
 		border-color: #191970;
 	}
 
 	::placeholder {
-		color: white;
+		color: #c3c3c3;
 		font-weight: 500;
 	}
 `;
@@ -29,7 +28,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const Legend = styled.p`
-  color: white;
+  color: #c3c3c3;
   font-size: 16px;
 `;
 

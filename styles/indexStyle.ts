@@ -15,7 +15,7 @@ export const SearchBarContainer = styled.div `
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-around;
+  justify-content: space-around;
 	width: 45%;
 	height: 30px;
 	margin-top: 2rem;
@@ -24,6 +24,10 @@ export const SearchBarContainer = styled.div `
 	:hover {
 		border-color: #8257E5;
 	}
+`;
+
+export const Icon = styled.div`
+	margin-left: -30rem ;
 `;
 
 export const NoUsers = styled.div `

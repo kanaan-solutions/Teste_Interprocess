@@ -4,11 +4,13 @@ import { useRouter } from 'next/router'
 import PageHeader from "../components/PageHeader";
 import { Button } from "../components/Button";
 import { IPatient } from '../types/Interfaces'
-import { FaUserSlash } from 'react-icons/fa'
+import { FaUserSlash } from 'react-icons/fa';
+import { MdClear } from 'react-icons/md';
 
 import {
   Container,
   SearchBarContainer,
+  Icon,
   NoUsers,
   Table
 } from '../styles/indexStyle';
@@ -81,6 +83,9 @@ export default function Register() {
             value={wordEntered}
             onChange={handleFilter}
           />
+          <Icon onClick={() => clearInput()} >
+            <MdClear size={16} color={"black"} />
+          </Icon>
         </SearchBarContainer>
 
         {!patient &&
@@ -101,19 +106,6 @@ export default function Register() {
                 gender={item.gender}
                 address={item.address}
                 status={item.status}
-                navigation={() => router.push({
-                  pathname: '/edit/[id]',
-                  query: {
-                    patientId: item.id,
-                    patientName: item.name,
-                    patientBirthDate: item.birthDate,
-                    patientCpf: item.cpf,
-                    patientGender: item.gender,
-                    patientAddress: item.address,
-                    patientStatus: item.status,
-                    index: index,
-                  },
-                })}
               />
             ))}
           </Table>
@@ -148,10 +140,7 @@ export default function Register() {
 
         <Button
           type="submit"
-          onClick={() => router.push({
-            pathname: "/register", 
-            // query: { patientCpf: cpf, }
-          })}
+          onClick={() => router.push("/register")}
           title={"Novo usuário"}
         />
       </Container>
