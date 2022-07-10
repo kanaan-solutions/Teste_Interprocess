@@ -1,16 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-
-First install the dependecies: 
-
-```bash
-npm install
-# or
-yarn install
 ```
+# Make a clone
+git clone https://github.com/<SEU_USUÁRIO>/Beplix_Teste.git
 
-After, run the development server:
+cd /path/pasta/Beplix_test
+
+# Install dependencies
+npm install ou yarn install
+
+Run the development server:
 
 ```bash
 npm run dev
