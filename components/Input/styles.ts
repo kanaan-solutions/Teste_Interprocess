@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-	flex-direction: column;
-	margin-top: 2rem;
-	align-items: center;
-`;
-
 export const InputText = styled.input`
 	height: 3rem;
 	width: 25rem;
@@ -16,7 +9,12 @@ export const InputText = styled.input`
 	border-radius: 8px;
 
 	:hover {
-		border-color: #8257E5;
+		border-color: #191970;
+	}
+
+	::placeholder {
+		color: white;
+		font-weight: 500;
 	}
 `;
 
@@ -30,9 +28,32 @@ export const InputWrapper = styled.div`
 `;
 
 export const Legend = styled.p`
-  color: #000;
+  color: white;
   font-size: 16px;
-  font-weight: 500;
 `;
 
-export const Label = styled(Legend)``;
+export const Fieldset = styled.fieldset`
+	display: flex;
+	margin: 1rem;
+	align-items: center;
+	border: 1px solid #c3c3c3;
+	width: 25rem;	
+	height: 3rem;
+	padding: 8px;
+	border-radius: 8px;
+
+  :hover {
+		border-color: #191970;
+	}
+`;
+
+export const OptionWrapper = styled.div`
+ display: flex;
+	flex-direction: column;
+	align-items: center;
+  padding: 3rem;
+`;
+
+export const Label = styled(Legend)`
+  
+`;

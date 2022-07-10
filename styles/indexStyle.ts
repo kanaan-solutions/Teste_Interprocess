@@ -31,14 +31,13 @@ export const NoUsers = styled.div `
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-margin-top: 4rem;
-  margin-bottom: 2rem;
+	margin-top: 4rem;
+	margin-bottom: 2rem;
 `;
 
 export const Table = styled.table`
   display: flex;
 	flex-direction: column;
-	align-items: center;
 	margin-top: 2rem;
   border: 1px solid #c3c3c3;
   margin-top: 4rem;

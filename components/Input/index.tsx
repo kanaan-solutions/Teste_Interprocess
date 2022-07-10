@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { IInputProps } from '../../types/Interfaces';
-import { Container, InputText, Legend, Label } from './styles';
+import { InputText, Legend, Fieldset, OptionWrapper, Label } from './styles';
 
 export function Input({
   legend,
@@ -28,10 +28,10 @@ export function Input({
       }
 
       {type === "checkbox" &&
-        <Container>
+        <Fieldset>
           <Legend>{legend}</Legend>
 
-          <div>
+          <OptionWrapper>
             <input
               type={type}
               value={value}
@@ -39,9 +39,9 @@ export function Input({
               onClick={onClickOne}
             />
             <Label>{optionOne}</Label>
-          </div>
+          </OptionWrapper>
 
-          <div>
+          <OptionWrapper>
             <input
               type={type}
               value={value}
@@ -49,8 +49,8 @@ export function Input({
               onClick={onClickTwo}
             />
             <Label>{optionTwo}</Label>
-          </div>
-        </Container>
+          </OptionWrapper>
+        </Fieldset>
       }
     </>
   );

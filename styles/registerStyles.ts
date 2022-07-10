@@ -12,4 +12,7 @@ export const Form = styled.form `
 	flex-direction: column;
 	align-items: center;
 	margin-top: 2rem;
+	margin-bottom: 1rem;
+	background-color: #8257E5;
+	border-radius: 20px;
 `;

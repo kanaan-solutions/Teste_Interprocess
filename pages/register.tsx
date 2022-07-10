@@ -48,7 +48,7 @@ export default function Register() {
           <Input
             value={masks.completeName(name)}
             type="text"
-            placeholder="Nome"
+            placeholder="Nome:"
             onChange={(e) => {
               setName(e.target.value)
             }}
@@ -57,7 +57,7 @@ export default function Register() {
           <Input
             value={masks.birthDate(birthDate)}
             type="text"
-            placeholder="Data de nascimento"
+            placeholder="Data de nascimento:"
             onChange={(e) => {
               setBirthDate(e.target.value)
             }}
@@ -66,14 +66,14 @@ export default function Register() {
           <Input
             value={masks.cpfMask(cpf)}
             type="text"
-            placeholder="CPF"
+            placeholder="CPF:"
             onChange={(e) => {
               setCpf(e.target.value)
             }}
           />
 
           <Input
-            legend="Gênero"
+            legend="Gênero:"
             type="checkbox"
             value={gender}
             optionOne="Feminino"
@@ -85,14 +85,14 @@ export default function Register() {
           <Input
             value={address}
             type="text"
-            placeholder="Endereço"
+            placeholder="Endereço:"
             onChange={(e) => {
               setAddress(e.target.value)
             }}
           />
 
           <Input
-            legend="Status"
+            legend="Status:"
             type="checkbox"
             value={status}
             optionOne="Ativo"
