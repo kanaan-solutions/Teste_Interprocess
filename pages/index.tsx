@@ -3,23 +3,25 @@ import { useRouter } from 'next/router'
 
 import PageHeader from "../components/PageHeader";
 import { Button } from "../components/Button";
-import { BiSearchAlt } from 'react-icons/bi'
 import { FaUserSlash } from 'react-icons/fa'
 
 import {
   Container,
   SearchBarContainer,
-  Patient,
   NoUsers,
+  Table
 } from '../styles/indexStyle';
 import { PageTitle } from "../components/PageTitle";
+import { Input } from '../components/Input';
+import { PatientCard } from '../components/PatientCard';
 
 interface IPatient {
+  id: number
   name: string;
   birthDate: string;
   cpf: string;
   gender: string;
-  adress: string;
+  address: string;
   status: string;
 }
 
@@ -77,17 +79,16 @@ export default function Register() {
       <Container>
         <PageTitle title={"Lista de Pacientes"} />
         <SearchBarContainer>
-          <input
+          <Input
             type="text"
             placeholder="Digite o nome do paciente..."
             ref={inputRef}
             value={wordEntered}
             onChange={handleFilter}
           />
-          <BiSearchAlt />
         </SearchBarContainer>
 
-        {patient.length === 0 &&
+        {!patient &&
           <NoUsers >
             <FaUserSlash size={63} color={"black"} />
             <PageTitle title={"Nenhum paciente cadastrado"} />
@@ -95,23 +96,33 @@ export default function Register() {
         }
 
         {wordEntered.length !== 0 ? (
-          <Patient>
-            {filteredData.map(({ name }, key) => (
-              <h1 key={key}>
-                {name}
-              </h1>
+          <Table>
+            {filteredData.map((item: IPatient) => (
+              <PatientCard
+                id={item.id}
+                name={item.name}
+                birthDate={item.birthDate}
+                cpf={item.cpf}
+                gender={item.gender}
+                address={item.address}
+                status={item.status}
+              />
             ))}
-          </Patient>
+          </Table>
         ) :
-          <Patient>
-            {patient.map((item: IPatient) => (
-              <div key={item.cpf}>
-                <h1>{item.name}</h1>
-                <h1>{item.gender}</h1>
-                <h1>{item.status}</h1>
-              </div>
+          <Table>
+            {patient?.map((item: IPatient) => (
+              <PatientCard
+                id={item.id}
+                name={item.name}
+                birthDate={item.birthDate}
+                cpf={item.cpf}
+                gender={item.gender}
+                address={item.address}
+                status={item.status}
+              />
             ))}
-          </Patient>
+          </Table>
         }
 
         <Button

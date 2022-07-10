@@ -1,4 +1,4 @@
-import { ChangeEventHandler, MouseEventHandler } from 'react';
+import { ChangeEventHandler, MouseEventHandler, RefObject } from 'react';
 import { Container, InputText, Legend, Label } from './styles';
 
 interface InputProps {
@@ -8,6 +8,7 @@ interface InputProps {
   optionOne?: string;
   optionTwo?: string;
   placeholder?: string;
+  ref?: RefObject<HTMLInputElement>;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onClickOne?: MouseEventHandler<HTMLInputElement>
   onClickTwo?: MouseEventHandler<HTMLInputElement>
@@ -20,6 +21,7 @@ export function Input({
   optionOne,
   optionTwo,
   placeholder,
+  ref,
   onChange,
   onClickOne,
   onClickTwo,
@@ -30,6 +32,7 @@ export function Input({
         <InputText
           value={value}
           type={type}
+        ref={ref}
           placeholder={placeholder}
           onChange={onChange}
         />
@@ -43,6 +46,7 @@ export function Input({
             <input
               type={type}
               value={value}
+              ref={ref}
               onClick={onClickOne}
             />
             <Label>{optionOne}</Label>
@@ -52,6 +56,7 @@ export function Input({
             <input
               type={type}
               value={value}
+              ref={ref}
               onClick={onClickTwo}
             />
             <Label>{optionTwo}</Label>

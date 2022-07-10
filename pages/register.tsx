@@ -28,7 +28,7 @@ export default function Register() {
       patientArray = JSON.parse(patients);
     }
 
-    patientArray.push({ name, birthDate, cpf, gender, address, status })
+    patientArray.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
 
     await localStorage.setItem('patientData', JSON.stringify(patientArray));
     alert("Deu certo")
