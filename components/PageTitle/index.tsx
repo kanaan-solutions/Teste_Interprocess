@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
-import { IPageTitleProps } from '../../types/Interfaces';
+import { IPageTitleProps } from '../../utils/Interfaces';
 
 export function PageTitle({ title }: IPageTitleProps) {
   return (

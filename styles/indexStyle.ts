@@ -1,36 +1,33 @@
 import styled from 'styled-components';
 
-export const Container = styled.div `
+export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-top: 2rem;
 `;
 
-export const PageTitle = styled.h1 `
+export const PageTitle = styled.h1`
 	font-size: 2.5rem;
 `;
 
-export const SearchBarContainer = styled.div `
+export const SearchBarContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-  justify-content: space-around;
+	justify-content: space-around;
 	width: 45%;
 	height: 30px;
 	margin-top: 2rem;
+  margin-right: 1.5rem;
 	border-radius: 8px;
-
-	:hover {
-		border-color: #8257E5;
-	}
 `;
 
 export const Icon = styled.div`
 	margin-left: -30rem ;
 `;
 
-export const NoUsers = styled.div `
+export const NoUsers = styled.div`
 	display:  flex;
 	flex-direction: column;
 	align-items: center;

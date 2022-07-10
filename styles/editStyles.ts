@@ -13,6 +13,6 @@ export const Form = styled.form `
 	align-items: center;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
-	background-color: #8257E5;
+	background-color: #0182bc;	
 	border-radius: 20px;
 `;

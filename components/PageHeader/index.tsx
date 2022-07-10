@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, TopBar, Name } from './styles';
-import { IPageHeaderProps } from "../../types/Interfaces";
+import { IPageHeaderProps } from "../../utils/Interfaces";
 
 const PageHeader: React.FC<IPageHeaderProps> = ({ title, arrow }) => {
     return(

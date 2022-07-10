@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IButtonProps } from '../../types/Interfaces';
+import { IButtonProps } from '../../utils/Interfaces';
 import { Container } from './styles';
 
 export function Button({ title, type, onClick }: IButtonProps) {

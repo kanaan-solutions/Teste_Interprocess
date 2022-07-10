@@ -3,11 +3,11 @@ import { Button } from "../components/Button";
 import PageHeader from "../components/PageHeader";
 import { PageTitle } from "../components/PageTitle";
 import { useRouter } from 'next/router'
-import * as masks from '../types/plugins/masks';
+import * as masks from '../utils/plugins/masks';
 import { Input } from "../components/Input";
-import { IPatient } from '../types/Interfaces';
+import { IPatient } from '../utils/Interfaces';
 
-import { Container, Form } from "../styles/editStyles";
+import { Container, Form } from "../styles/registerStyles";
 
 export default function Register() {
   const router = useRouter()

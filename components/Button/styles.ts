@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button `
-  background-color:#04D361;
+  background-color: #3EBAD6;
   width: 12rem;
   height: 3rem;
   text-align: center;
@@ -12,6 +12,6 @@ export const Container = styled.button `
   border-radius: 12px;
 
   :hover {
-    background-color: #04BF58;
+    background-color: #0182BC;
   }
 `;

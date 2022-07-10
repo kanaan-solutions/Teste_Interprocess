@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router'
-import * as masks from '../../types/plugins/masks';
+import * as masks from '../../utils/plugins/masks';
 
 import PageHeader from "../../components/PageHeader";
 import { Button } from "../../components/Button";
@@ -30,10 +30,6 @@ export default function Register() {
   const [gender, setGender] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [status, setStatus] = useState<string>("");
-
-  useEffect(() => {
-    console.log(index)
-  }, [])
 
   function handleSubmit() {
     const patients = localStorage.getItem("patientData");

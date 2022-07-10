@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div `
 	display: flex;
-	flex: 1 ;
-	background-color: #8257E5;
-	width: 100%;
+	background-color: #0182BC;
+	width: 100vw;
 `;
 
 export const TopBar = styled.div `
@@ -13,7 +12,6 @@ export const TopBar = styled.div `
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	color: #D4C2FF;
 	padding: 1.6rem 0;
 	
 	> a {
@@ -27,5 +25,5 @@ export const TopBar = styled.div `
 
 export const Name = styled.h1 `
 	font-size: 3rem;
-	color: #D4C2FF;
+	color: #3D3D3D;
 `;	

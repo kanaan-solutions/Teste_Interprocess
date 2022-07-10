@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IPatientCardProps } from '../../types/Interfaces';
+import { IPatientCardProps } from '../../utils/Interfaces';
 import { Container, MainTd, Td, Tr } from './styles';
 import { AiOutlineEdit } from 'react-icons/ai';
 

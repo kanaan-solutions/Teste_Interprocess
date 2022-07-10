@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import PageHeader from "../components/PageHeader";
 import { Button } from "../components/Button";
-import { IPatient } from '../types/Interfaces'
+import { IPatient } from '../utils/Interfaces'
 import { FaUserSlash } from 'react-icons/fa';
 import { MdClear } from 'react-icons/md';
 
@@ -52,7 +52,7 @@ export default function Register() {
     const searchWord: string = target.value.toLowerCase()
     setWordEntered(searchWord)
 
-    const newFilter: IPatient[] = patient.filter(({ name }): boolean =>
+    const newFilter: IPatient[] = patient?.filter(({ name }): boolean =>
       name.toLowerCase().includes(searchWord)
     )
 
@@ -97,7 +97,7 @@ export default function Register() {
 
         {wordEntered.length !== 0 ? (
           <Table>
-            {filteredData.map((item: IPatient, index) => (
+            {filteredData?.map((item: IPatient, index) => (
               <PatientCard
                 id={item.id}
                 name={item.name}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IInputProps } from '../../types/Interfaces';
+import { IInputProps } from '../../utils/Interfaces';
 import { InputText, Legend, Fieldset, OptionWrapper, Label } from './styles';
 
 export function Input({
