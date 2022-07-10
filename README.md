@@ -33,30 +33,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 ```
-### Informações Gerais
-```
-# Pasta public
-Contém todas as imagens usadas na aplicação
-
-
-# Pasta components
-Contém todos os Componentes usados pela aplicação
-
-
-# Pasta pages
-Contém todos as Páginas usados pela aplicação
-
-
-# Pasta styles
-Contém os estilos das páginas principais
-
-
-
-# Pasta stores
-Composta pela pasta ducks, nela possuem todos os reducers usados pela aplicação
-
-
-# Pasta utils
-Contém as informações úteis da aplicação como todas as Interface usadas, plugins e types.
-```
-
