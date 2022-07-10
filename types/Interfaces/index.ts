@@ -1,3 +1,4 @@
+import { NextRouter } from "next/router";
 import {
     FormEvent,
     ChangeEventHandler,
@@ -24,7 +25,7 @@ export interface IButtonProps {
 export interface IInputProps {
     legend?: string;
     type: string;
-    value: string;
+    value: string | string[];
     optionOne?: string;
     optionTwo?: string;
     placeholder?: string;
@@ -51,4 +52,5 @@ export interface IPatientCardProps {
     gender?: string;
     address?: string;
     status?: string;
+    navigation?: () => Promise<boolean>;
 }

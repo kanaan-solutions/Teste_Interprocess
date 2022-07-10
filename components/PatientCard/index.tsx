@@ -13,6 +13,7 @@ export function PatientCard({
   gender,
   address,
   status,
+  navigation,
 }: IPatientCardProps) {
   return (
     <Container key={id}>
@@ -34,9 +35,7 @@ export function PatientCard({
         <Td>{address}</Td>
         <Td>{status}</Td>
         <Td>
-          <a href='/register'>
-            <AiOutlineEdit size={12} color={"black"} />
-          </a>
+          <AiOutlineEdit size={12} color={"black"} onClick={navigation} />
         </Td>
       </Tr>
     </Container>

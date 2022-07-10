@@ -1,15 +1,28 @@
-import { useState, FormEvent } from "react";
-import { Button } from "../components/Button";
-import PageHeader from "../components/PageHeader";
-import { PageTitle } from "../components/PageTitle";
+import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router'
-import * as masks from '../types/plugins/masks';
-import { Input } from "../components/Input";
+import * as masks from '../../types/plugins/masks';
 
-import { Container, Form } from "../styles/editStyles";
+import PageHeader from "../../components/PageHeader";
+import { Button } from "../../components/Button";
+
+import {
+  Container,
+  Form
+} from '../../styles/editStyles';
+import { PageTitle } from "../../components/PageTitle";
+import { Input } from '../../components/Input';
 
 export default function Register() {
   const router = useRouter()
+  const {
+    patientId,
+    patientName,
+    patientBirthDate,
+    patientCpf,
+    patientGender,
+    patientAddress,
+    patientStatus
+  } = router.query;
 
   const [name, setName] = useState<string>("");
   const [birthDate, setBirthDate] = useState<string>("");
@@ -17,6 +30,17 @@ export default function Register() {
   const [gender, setGender] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [status, setStatus] = useState<string>("");
+
+
+  useEffect(() => {
+    console.log(patientId)
+    console.log(patientName)
+    console.log(patientBirthDate)
+    console.log(patientCpf)
+    console.log(patientGender)
+    console.log(patientAddress)
+    console.log(patientStatus)
+  }, [])
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -39,14 +63,14 @@ export default function Register() {
 
   return (
     <>
-      <PageHeader arrow={true} title="Acme" />
+      <PageHeader title="ACME" />
 
       <Container>
-        <PageTitle title={"Formulário de Cadastro de Pacientes"} />.
+        <PageTitle title={"Edite"} />
 
         <Form>
           <Input
-            value={masks.completeName(name)}
+            value={masks.completeName(name) || patientName}
             type="text"
             placeholder="Nome:"
             onChange={(e) => {
@@ -55,7 +79,7 @@ export default function Register() {
           />
 
           <Input
-            value={masks.birthDate(birthDate)}
+            value={masks.birthDate(birthDate) || patientBirthDate}
             type="text"
             placeholder="Data de nascimento:"
             onChange={(e) => {
@@ -64,7 +88,7 @@ export default function Register() {
           />
 
           <Input
-            value={masks.cpfMask(cpf)}
+            value={masks.cpfMask(cpf) || patientCpf}
             type="text"
             placeholder="CPF:"
             onChange={(e) => {
@@ -83,7 +107,7 @@ export default function Register() {
           />
 
           <Input
-            value={address}
+            value={address || patientAddress}
             type="text"
             placeholder="Endereço:"
             onChange={(e) => {
@@ -105,11 +129,9 @@ export default function Register() {
         <Button
           type="submit"
           onClick={handleSubmit}
-          title={"Cadastrar"}
+          title={"Atualizar Cadastro"}
         />
       </Container>
     </>
   );
 }
-
-

@@ -97,6 +97,18 @@ export default function Register() {
                 gender={item.gender}
                 address={item.address}
                 status={item.status}
+                navigation={() => router.push({
+                  pathname: '/edit/[id]',
+                  query: {
+                    id: item.id,
+                    name: item.name,
+                    birthDate: item.birthDate,
+                    cpf: item.cpf,
+                    gender: item.gender,
+                    address: item.address,
+                    status: item.status,
+                  },
+                })}
               />
             ))}
           </Table>
@@ -111,6 +123,18 @@ export default function Register() {
                 gender={item.gender}
                 address={item.address}
                 status={item.status}
+                navigation={() => router.push({
+                  pathname: '/edit/[patientId]',
+                  query: {
+                    patientId: item.id,
+                    patientName: item.name,
+                    patientBirthDate: item.birthDate,
+                    patientCpf: item.cpf,
+                    patientGender: item.gender,
+                    patientAddress: item.address,
+                    patientStatus: item.status,
+                  },
+                })}
               />
             ))}
           </Table>
