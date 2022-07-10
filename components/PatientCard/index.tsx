@@ -1,16 +1,9 @@
 import React from 'react';
+
+import { IPatientCardProps } from '../../types/Interfaces';
 import { Container, MainTd, Td, Tr } from './styles';
 import { AiOutlineEdit } from 'react-icons/ai';
 
-interface PatientCardProps {
-  id: number;
-  name: string;
-  birthDate?: string;
-  cpf?: string;
-  gender?: string;
-  address?: string;
-  status?: string;
-}
 
 export function PatientCard({
   id,
@@ -20,7 +13,7 @@ export function PatientCard({
   gender,
   address,
   status,
-}: PatientCardProps) {
+}: IPatientCardProps) {
   return (
     <Container key={id}>
       <Tr>

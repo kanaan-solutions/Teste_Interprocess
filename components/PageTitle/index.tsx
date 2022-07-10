@@ -1,10 +1,9 @@
+import React from 'react';
+
 import { Container } from './styles';
+import { IPageTitleProps } from '../../types/Interfaces';
 
-interface PageTitleProps {
-  title: string;
-}
-
-export function PageTitle({ title }) {
+export function PageTitle({ title }: IPageTitleProps) {
   return (
     <Container>
       {title}

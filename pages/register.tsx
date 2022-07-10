@@ -3,7 +3,7 @@ import { Button } from "../components/Button";
 import PageHeader from "../components/PageHeader";
 import { PageTitle } from "../components/PageTitle";
 import { useRouter } from 'next/router'
-import * as masks from '../plugins/masks';
+import * as masks from '../types/plugins/masks';
 import { Input } from "../components/Input";
 
 import { Container, Form } from "../styles/registerStyles";

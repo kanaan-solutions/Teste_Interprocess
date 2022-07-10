@@ -1,18 +1,7 @@
-import { ChangeEventHandler, MouseEventHandler, RefObject } from 'react';
-import { Container, InputText, Legend, Label } from './styles';
+import React from 'react';
 
-interface InputProps {
-  legend?: string;
-  type: string;
-  value: string;
-  optionOne?: string;
-  optionTwo?: string;
-  placeholder?: string;
-  ref?: RefObject<HTMLInputElement>;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  onClickOne?: MouseEventHandler<HTMLInputElement>
-  onClickTwo?: MouseEventHandler<HTMLInputElement>
-}
+import { IInputProps } from '../../types/Interfaces';
+import { Container, InputText, Legend, Label } from './styles';
 
 export function Input({
   legend,
@@ -25,7 +14,7 @@ export function Input({
   onChange,
   onClickOne,
   onClickTwo,
-}: InputProps) {
+}: IInputProps) {
   return (
     <>
       {type === "text" &&

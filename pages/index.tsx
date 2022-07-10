@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import PageHeader from "../components/PageHeader";
 import { Button } from "../components/Button";
+import { IPatient } from '../types/Interfaces'
 import { FaUserSlash } from 'react-icons/fa'
 
 import {
@@ -14,16 +15,6 @@ import {
 import { PageTitle } from "../components/PageTitle";
 import { Input } from '../components/Input';
 import { PatientCard } from '../components/PatientCard';
-
-interface IPatient {
-  id: number
-  name: string;
-  birthDate: string;
-  cpf: string;
-  gender: string;
-  address: string;
-  status: string;
-}
 
 export default function Register() {
   const router = useRouter()
