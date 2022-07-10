@@ -13,16 +13,3 @@ export const Form = styled.form `
 	align-items: center;
 	margin-top: 2rem;
 `;
-
-export const Input = styled.input `
-	height: 3rem;
-	width: 25rem;
-	border: 1px solid #c3c3c3;
-	margin: 1rem;
-	padding: 8px;
-	border-radius: 8px;
-
-	:hover {
-		border-color: #8257E5;
-	}
-`;

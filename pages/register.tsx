@@ -4,13 +4,11 @@ import PageHeader from "../components/PageHeader";
 import { PageTitle } from "../components/PageTitle";
 import { useRouter } from 'next/router'
 import * as masks from '../plugins/masks';
+import { Input } from "../components/Input";
 
-import { Container, Form, Input } from "../styles/registerStyles";
+import { Container, Form } from "../styles/registerStyles";
 
 export default function Register() {
-
-
-
   const router = useRouter()
 
   const [name, setName] = useState<string>("");
@@ -48,9 +46,8 @@ export default function Register() {
 
         <Form>
           <Input
-            value={name}
+            value={masks.completeName(name)}
             type="text"
-            name="name"
             placeholder="Nome"
             onChange={(e) => {
               setName(e.target.value)
@@ -58,9 +55,8 @@ export default function Register() {
           />
 
           <Input
-            value={birthDate}
+            value={masks.birthDate(birthDate)}
             type="text"
-            name="birthdate"
             placeholder="Data de nascimento"
             onChange={(e) => {
               setBirthDate(e.target.value)
@@ -68,9 +64,8 @@ export default function Register() {
           />
 
           <Input
-            value={cpf}
+            value={masks.cpfMask(cpf)}
             type="text"
-            name="cpf"
             placeholder="CPF"
             onChange={(e) => {
               setCpf(e.target.value)
@@ -78,19 +73,18 @@ export default function Register() {
           />
 
           <Input
+            legend="Gênero"
+            type="checkbox"
             value={gender}
-            type="text"
-            name="gender"
-            placeholder="Gênero"
-            onChange={(e) => {
-              setGender(e.target.value)
-            }}
+            optionOne="Feminino"
+            optionTwo="Masculino"
+            onClickOne={() => setGender("Feminino")}
+            onClickTwo={() => setGender("Masculino")}
           />
 
           <Input
             value={address}
             type="text"
-            name="address"
             placeholder="Endereço"
             onChange={(e) => {
               setAddress(e.target.value)
@@ -98,13 +92,13 @@ export default function Register() {
           />
 
           <Input
+            legend="Status"
+            type="checkbox"
             value={status}
-            type="text"
-            name="status"
-            placeholder="Status"
-            onChange={(e) => {
-              setStatus(e.target.value)
-            }}
+            optionOne="Ativo"
+            optionTwo="Inativo"
+            onClickOne={() => setStatus("Ativo")}
+            onClickTwo={() => setStatus("Inativo")}
           />
         </Form>
 

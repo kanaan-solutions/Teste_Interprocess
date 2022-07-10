@@ -104,10 +104,12 @@ export default function Register() {
           </Patient>
         ) :
           <Patient>
-            {patient.map(({ name }, key) => (
-              <h1 key={key}>
-                {name}
-              </h1>
+            {patient.map((item: IPatient) => (
+              <div key={item.cpf}>
+                <h1>{item.name}</h1>
+                <h1>{item.gender}</h1>
+                <h1>{item.status}</h1>
+              </div>
             ))}
           </Patient>
         }
