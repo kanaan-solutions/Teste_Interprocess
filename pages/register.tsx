@@ -1,10 +1,11 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Button } from "../components/Button";
 import PageHeader from "../components/PageHeader";
 import { PageTitle } from "../components/PageTitle";
 import { useRouter } from 'next/router'
 import * as masks from '../types/plugins/masks';
 import { Input } from "../components/Input";
+import { IPatient } from '../types/Interfaces';
 
 import { Container, Form } from "../styles/editStyles";
 
@@ -17,28 +18,52 @@ export default function Register() {
   const [gender, setGender] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [status, setStatus] = useState<string>("");
+  const [cpfExist, setCpfExist] = useState<any[]>(null)
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    const patients = await localStorage.getItem("patientData");
+  useEffect(() => {
+    const handleCpfExist = () => {
+      const patients = localStorage.getItem("patientData");
+
+      let patientArray = [];
+
+      if (patients === "null") {
+        console.log(null)
+      } else {
+        patientArray = JSON.parse(patients);
+      }
+
+      if (cpf) {
+        setCpfExist(patientArray?.filter((item: IPatient) => item.cpf.includes(cpf)))
+      }
+    }
+
+    handleCpfExist()
+
+    console.log("to no useEffect", cpfExist?.length)
+  }, [cpf])
+
+   function handleSubmit(e: FormEvent) {
+    const patients = localStorage.getItem("patientData");
 
     let patientArray = [];
+    console.log("criado o value")
 
-    if (patients) {
+    if (patients === "null") {
+      console.log(null)
+    } else {
       patientArray = JSON.parse(patients);
     }
 
     if (!name || !birthDate || !cpf || !gender || !status) {
-      return alert("Alguns campos não foram preenchidos")
+      alert("Alguns campos não foram preenchidos")
+    } else if (cpfExist?.length > 0) {
+      alert("CPF já cadastrado")
     } else {
-      patientArray.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
-
-      await localStorage.setItem('patientData', JSON.stringify(patientArray));
+      patientArray?.push({ id: Math.random(), name, birthDate, cpf, gender, address, status })
+      localStorage.setItem('patientData', JSON.stringify(patientArray));
       alert("Paciente cadastrado com sucesso")
-
       router.push("/")
-    }
-
+    }    
   }
 
   return (
@@ -115,5 +140,3 @@ export default function Register() {
     </>
   );
 }
-
-

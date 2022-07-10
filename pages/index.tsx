@@ -31,6 +31,10 @@ export default function Register() {
     const getPatientData = () => {
       const response = localStorage.getItem("patientData");
 
+      if (!response) {
+        localStorage.setItem('patientData', JSON.stringify(null));
+      }
+
       if (typeof response !== undefined) {
         const patientDataParse = JSON.parse(response)
         setPatient(patientDataParse)
@@ -142,7 +146,10 @@ export default function Register() {
 
         <Button
           type="submit"
-          onClick={() => router.push("/register")}
+          onClick={() => router.push({
+            pathname: "/register", 
+            // query: { patientCpf: cpf, }
+          })}
           title={"Novo usuário"}
         />
       </Container>
